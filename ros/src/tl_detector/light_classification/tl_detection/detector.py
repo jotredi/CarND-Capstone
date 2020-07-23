@@ -41,7 +41,7 @@ class traffic_light_detector(object):
         box_coords[:, 3] = boxes[:, 3] * width
         return box_coords
 
-    def predict(self, image, confidence_cutoff=0.4):
+    def predict(self, image, confidence_cutoff=0.3):
         image_np = np.expand_dims(np.asarray(image, dtype=np.uint8), 0)
         result = self.predictor_fn({'inputs': image_np})
         boxes = np.squeeze(result["detection_boxes"])
