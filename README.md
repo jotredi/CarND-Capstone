@@ -24,7 +24,7 @@ Each node implements a core functionality of the complete system and they could 
 
 The following diagram shows the architecture of the ROS nodes as well as the topics that are being used:
 
-DIAGRAM
+<img src="./imgs/final-project-ros-graph-v2.png" height=555 >
 
 ## Perception 
 
@@ -32,7 +32,7 @@ In the Perception part, the car needs to be able to detect and classify obstacle
 
 The traffic light detection node reads data from waypoints, camera and current position to publish the location where the car needs to stop for red traffic lights in `/traffic_waypoint`.
 
-PHOTO 
+<img src="./imgs/tl-detector-ros-graph.png" >
 
 ### TL detection 
 
@@ -44,7 +44,7 @@ Inference time plays an important role in self driving cars because the detectio
 
 Here is the output for simulator and real world images:
 
-IMAGES
+<img src="./imgs/sim_detection.jpg" height=300>  <img src="./imgs/real_detection.jpg" height=300>
 
 ### TL Classification
 
@@ -60,7 +60,7 @@ The main task here is performed by the `Waypoint Updater Node`. This node update
 
 Finally, this node will publish the final waypoints that the controller will execute:
 
-IMAGE 
+<img src="./imgs/waypoint-updater-ros-graph.png" >
 
 In real world driving, this Planning module will modify not only the velocity of the vehicle but also the trajectory. For example, if there is an obstacle in our way that is not going to move (like a parked vehicle) we would have to replan a trajectory to avoid that vehicle and continue driving.
 
@@ -74,7 +74,7 @@ These commands can then be published to the following topics:
 * `/vehicle/brake_cmd`
 * `/vehicle/steering_cmd`
 
-IMAGE 
+<img src="./imgs/dbw-node-ros-graph.png" >
 
 The vehicle control is implemented in `twist_controller.py`. This controller takes twist data as input and returns throttle, brake and steering values.
 
